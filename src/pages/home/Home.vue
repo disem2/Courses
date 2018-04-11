@@ -22,5 +22,6 @@ export default {
 #home-page {
   height: 70%;
   margin-top: 95px;
+  margin-bottom: 60px;
 }
 </style>

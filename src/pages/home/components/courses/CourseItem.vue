@@ -1,7 +1,7 @@
 <template>
-  <div id="course-item">
+  <div id="course-item" :style="durationIndicator">
     <div id="course-item-content">
-      <h2>{{ course.title}} | Duration: {{ course.duration | showInHoures }}</h2>
+      <h2>{{ course.title }} | Duration: {{ course.duration | showInHoures }}</h2>
       <article>{{ course.text }}</article>
     </div>
     <div id='course-item-controls'>
@@ -21,6 +21,16 @@ export default {
     deleteCourse: {
       type: Function,
       required: true
+    }
+  },
+  computed: {
+    durationIndicator: function() {
+      if(this.course.duration < 60)
+        return { 'border-left': '5px solid gold' };
+      if(60 < this.course.duration && this.course.duration < 90)
+        return { 'border-left': '5px solid limegreen' };
+      if(90 < this.course.duration)
+        return { 'border-left': '5px solid crimson' };
     }
   }
 };

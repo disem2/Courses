@@ -16,8 +16,8 @@ export default {
       searchQuery: ''
     };
   },
-  methods: {
-    search: function() {
+  watch: {
+    searchQuery: function() {
       bus.$emit('courseSearch', this.searchQuery);
     }
   }

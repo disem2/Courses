@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li v-for='course in courses' :key='course.id'>
+    <li v-for='course in filtredCourses' :key='course.id'>
       <CourseItem :course='course'
         :deleteCourse='deleteCourse' />
     </li>
@@ -23,12 +23,13 @@ export default {
   },
   computed: {
     filtredCourses: function() {
-      bus.$on('courseSearch', (search) => {
+      bus.$on('courseSearch', search => {
         this.wanted = search;
       });
       return this.courses
-        .filter((course) => {
-          course.title === this.wanted
+        .filter(course => {
+          return course.title.toLowerCase().trim()
+            .match(this.wanted.toLowerCase().trim());
       });
     }
   },
@@ -39,7 +40,7 @@ export default {
         { 
           id: 1,
           title: 'Udemy Course', 
-          duration: 23, 
+          duration: 61, 
           text: 'some text some some'
         },
         { 
@@ -57,7 +58,7 @@ export default {
         { 
           id: 4,
           title: 'Another Course', 
-          duration: 44, 
+          duration: 78, 
           text: 'some text some some'
         },                
         { 
