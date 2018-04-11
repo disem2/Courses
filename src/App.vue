@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <Breadcrumbs />
     <Home />
     <Footer />
   </div>
@@ -9,10 +10,12 @@
 <script>
 import { Header, Footer } from './common';
 import Home from './pages/home/Home.vue';
+import Breadcrumbs from './shared/components/Breadcrumbs.vue';
 
 export default {
   components: {
     Header,
+    Breadcrumbs,
     Home,
     Footer
   },

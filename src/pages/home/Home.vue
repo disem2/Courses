@@ -21,7 +21,7 @@ export default {
 <style scoped>
 #home-page {
   height: 70%;
-  margin-top: 95px;
+  margin-top: 15px;
   margin-bottom: 60px;
 }
 </style>
