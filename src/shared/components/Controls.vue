@@ -3,7 +3,9 @@
     <input type="text" 
       v-model="searchQuery"
       placeholder="Type course name">
-    <button>Add new course</button>
+    <button><router-link class="add-course-button" to='/add-course' exact>
+      Add new Course   
+    </router-link></button> 
   </div>  
 </template>
 
@@ -44,6 +46,11 @@ button {
   padding: auto;
 }
 
+.add-course-button {
+  display: block;
+  text-decoration: none;
+  padding: auto;
+} 
 </style>
 
 

@@ -1,8 +1,11 @@
 <template>
   <ul id="breadcrumbs">
-    <li v-for="breadcrumb in breadcrumbs" :key="breadcrumb.id">
-      <a href="#">{{ breadcrumb.title }}</a> 
-    </li>   
+    <li>
+      <router-link to='/' exact>Home</router-link> 
+    </li> 
+    <li>
+      <router-link to='/add-course' exact>Add course</router-link> 
+    </li>         
   </ul>
 </template>
 

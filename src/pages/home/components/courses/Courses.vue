@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { bus } from '../../../../main';
+import searchMixin from '../../../../mixins/searchMixin';
 import CourseItem from './CourseItem.vue';
 
 export default {
@@ -21,18 +21,7 @@ export default {
         .filter(course => course.id !== id);
     }
   },
-  computed: {
-    filtredCourses: function() {
-      bus.$on('courseSearch', search => {
-        this.wanted = search;
-      });
-      return this.courses
-        .filter(course => {
-          return course.title.toLowerCase().trim()
-            .match(this.wanted.toLowerCase().trim());
-      });
-    }
-  },
+  mixins: [ searchMixin ],
   data() {
     return {
       wanted: '',
