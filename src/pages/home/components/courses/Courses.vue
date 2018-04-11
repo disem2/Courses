@@ -22,13 +22,13 @@ export default {
     }
   },
   computed: {
-    filtredCourses: function() {
+    filtredCourses: function() { // TODO. Side effect. Remake watcher to component init hook
       bus.$on('courseSearch', search => {
         this.wanted = search;
       });
       return this.courses
         .filter(course => {
-          return course.title.toLowerCase().trim()
+          return course.title.toLowerCase().trim() // TODO Make global helper and put this matcher there
             .match(this.wanted.toLowerCase().trim());
       });
     }
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       wanted: '',
-      courses: [
+      courses: [ // TODO Move mock data to separate file
         { 
           id: 1,
           title: 'Udemy Course', 

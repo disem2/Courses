@@ -24,7 +24,7 @@ export default {
     }
   },
   computed: {
-    durationIndicator: function() {
+    durationIndicator: function() { // TODO Remake to directive
       if(this.course.duration < 60)
         return { 'border-left': '5px solid gold' };
       if(60 < this.course.duration && this.course.duration < 90)

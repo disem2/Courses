@@ -17,7 +17,7 @@ export default {
     };
   },
   watch: {
-    searchQuery: function() {
+    searchQuery: function() { // TODO This find should trigger event just to parent. It may be side effect
       bus.$emit('courseSearch', this.searchQuery);
     }
   }
