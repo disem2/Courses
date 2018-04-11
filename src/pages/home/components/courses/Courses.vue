@@ -1,0 +1,84 @@
+<template>
+  <ul>
+    <li v-for='course in courses' :key='course.id'>
+      <CourseItem :course='course'
+        :deleteCourse='deleteCourse' />
+    </li>
+  </ul>
+</template>
+
+<script>
+import { bus } from '../../../../main';
+import CourseItem from './CourseItem.vue';
+
+export default {
+  components: {
+    CourseItem
+  },
+  methods: {
+    deleteCourse: function(id) {
+      return this.courses = this.courses
+        .filter(course => course.id !== id);
+    }
+  },
+  computed: {
+    filtredCourses: function() {
+      bus.$on('courseSearch', (search) => {
+        this.wanted = search;
+      });
+      return this.courses
+        .filter((course) => {
+          course.title === this.wanted
+      });
+    }
+  },
+  data() {
+    return {
+      wanted: '',
+      courses: [
+        { 
+          id: 1,
+          title: 'Udemy Course', 
+          duration: 23, 
+          text: 'some text some some'
+        },
+        { 
+          id: 2,
+          title: 'NetNinja Course', 
+          duration: 233, 
+          text: 'some text some some'
+        },
+        { 
+          id: 3,
+          title: 'Traversy Course', 
+          duration: 44, 
+          text: 'some text some some'
+        },                
+        { 
+          id: 4,
+          title: 'Another Course', 
+          duration: 44, 
+          text: 'some text some some'
+        },                
+        { 
+          id: 5,
+          title: 'Last Course', 
+          duration: 44, 
+          text: 'some text some some'
+        },                                
+      ]
+    };
+  }
+};
+</script>
+
+<style>
+ul {
+  padding: 0;
+  list-style-type: none;
+  width: 70%;
+  margin: 20px auto;
+}
+</style>
+
+
