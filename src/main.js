@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from './App.vue'; // TODO Move filter and directive to shared folder
+import App from './App.vue';
 
 Vue.config.productionTip = false;
 
@@ -14,8 +14,23 @@ Vue.filter('showInHoures', function(mins) {
   return output;
 });
 
+import VueRouter from 'vue-router';
+import App from './App.vue'; // TODO Move filter and directive to shared folder
+import routes from './routes';
+
+Vue.config.productionTip = false;
+
 export const bus = new Vue();
 
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  mode: 'history',
+  routes
+});
+
 new Vue({
-  render: h => h(App)
-}).$mount('#app');
+  el: '#app',
+  render: h => h(App),
+  router
+});

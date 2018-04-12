@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
     <Breadcrumbs />
-    <Home />
+    <router-view></router-view>
     <Footer />
   </div>
 </template>
@@ -16,7 +16,6 @@ export default {
   components: {
     Header,
     Breadcrumbs,
-    Home,
     Footer
   },
 }

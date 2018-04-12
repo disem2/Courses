@@ -12,6 +12,11 @@
 </template>
 
 <script>
+import {
+  showInHoures,
+  durationIndicator
+} from '../../../../mixins';
+
 export default {
   props: {
     course: {
@@ -33,6 +38,10 @@ export default {
         return { 'border-left': '5px solid crimson' };
     }
   }
+  mixins: [ 
+    showInHoures,
+    durationIndicator 
+  ],
 };
 </script>
 

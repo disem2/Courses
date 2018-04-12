@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { bus } from '../../../../main';
+import searchMixin from '../../../../mixins/searchMixin';
 import CourseItem from './CourseItem.vue';
 
 export default {
@@ -33,6 +33,7 @@ export default {
       });
     }
   },
+  mixins: [ searchMixin ],
   data() {
     return {
       wanted: '',
